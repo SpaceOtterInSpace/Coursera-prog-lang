@@ -1,0 +1,5 @@
+
+fun is_older (date1 : int*int*int, date 2 : int*int*int)=
+	     if # date1 < date2 then true else false
+
+
