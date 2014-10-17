@@ -1,4 +1,4 @@
-(*use "hw1test.sml";*)
+(*  use "hw1test.sml";   *)
 
 val date1 = (2014,10,08)
 val date2 = (2013,11,4)
@@ -44,6 +44,12 @@ fun date_to_string(date : int*int*int) =
 	end
 
 fun number_before_reaching_sum (sum : int, numbers : int list) =
+	if null (tl numbers)
+	then 0
+	else
+		if sum <= hd numbers + hd (tl numbers)
+		then 1
+		else 1 + number_before_reaching_sum(sum - hd numbers, tl numbers)
 
 
 
