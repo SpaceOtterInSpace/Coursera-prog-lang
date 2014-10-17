@@ -1,2 +1,1 @@
-val n =1;
-
+fun sum_list (xs :int list) =
