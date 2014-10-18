@@ -25,8 +25,10 @@ val test8 = number_before_reaching_sum(5, [3,2,2]) = 1
 val test8 = number_before_reaching_sum(4, [1,4,1,1]) = 1
 val test8 = number_before_reaching_sum(6, [4,1,1,1]) = 2
 
-(*val test9 = what_month(70) = 3
+val test9 = what_month(70) = 3
+val test9 = what_month(364) = 12
+val test9 = what_month(1) = 1
 
-val test10 = month_range(31, 34) = [1,2,2,2]
+(*val test10 = month_range(31, 34) = [1,2,2,2]
 
 val test11 = oldest([(2012,2,28),(2011,3,31),(2011,4,28)]) = SOME (2011,3,31)*)

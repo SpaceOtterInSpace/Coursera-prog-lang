@@ -51,6 +51,11 @@ fun number_before_reaching_sum (sum : int, numbers : int list) =
 		then 1
 		else 1 + number_before_reaching_sum(sum - hd numbers, tl numbers)
 
+fun what_month (day : int) =
+	if day < 32
+	then 1
+	else number_before_reaching_sum (day, [31,28,31,30,31,30,31,31,30,31,30,31]) + 1 
+
 
 
 
