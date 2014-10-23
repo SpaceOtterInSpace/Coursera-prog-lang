@@ -2,6 +2,7 @@
 
 val date1 = (2014,10,08)
 val date2 = (2013,11,4)
+val dates = [date1, date2]
 
 fun is_older (date1 : int*int*int, date2 : int*int*int) =
      (#1 date1) * 10000 + (#2 date1) * 100 + (#3 date1) < (#1 date2) * 10000
@@ -55,6 +56,43 @@ fun what_month (day : int) =
 	if day < 32
 	then 1
 	else number_before_reaching_sum (day, [31,28,31,30,31,30,31,31,30,31,30,31]) + 1 
+
+fun month_range(day1 : int, day2 : int) = 
+	let val day_mid = day1 + 1
+	in if day1 > day2
+		then []
+		else what_month(day1) :: month_range(day_mid, day2)
+	end
+
+(*fun oldest (dates : int list) =
+	if null dates
+	then NONE
+	else
+		let val tl_ans = oldest(tl dates)
+		in if isSome tl_ans andalso is_older ( hd dates, hd dates )
+			then tl_ans
+			else SOME (hd dates)
+		end*)
+
+fun oldest(dates :(int*int*int) list) =
+	if null dates
+	then NONE
+	else
+		if null (tl dates)
+		then SOME (hd dates)
+		else if is_older(hd dates, hd (tl dates))
+			then oldest(hd dates :: tl (tl dates))
+			else oldest(tl dates)
+
+(*	if is_older(hd dates, (hd (tl dates)))
+	then oldest (hd dates :: (hd (tl dates))
+	else oldest(tl dates)*)
+
+
+
+(*11. Write a function oldest that takes a list of dates and evaluates to an (int*int*int) option. It
+evaluates to NONE if the list has no dates and SOME d if the date d is the oldest date in the list.
+*)
 
 
 
